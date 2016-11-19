@@ -1,5 +1,5 @@
 {
-  "name": "Random Number Memory Game",
+  "name": "rnmg",
   "version": "0.0.0",
   "description": "A game project for Artificial Intelligence course 2016 at Department of Mathematics, Airlangga University",
   "main": "main.js",
