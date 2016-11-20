@@ -1,3 +1,61 @@
+.container {
+    max-width: 600px;
+    min-width: 600px;
+}
+
+#pesan-pembuka {
+    text-align: center;
+    margin-top: 72px;
+}
+
+#petunjuk {
+    margin-top: 72px;
+}
+
+.columns > h1 {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+#tombol-mulai, #tombol-kembali {
+    background-color: rgba(0,0,0,0.85);
+    border-color: rgba(0,0,0,0.5);
+}
+#tombol-kembali {
+    float: right;
+}
+#tombol-petunjuk {
+    background-color: #fff;
+    border-color: #000;
+    color: rgba(0,0,0,0.85);
+}
+#tombol-keluar {
+    float: right;
+    color: #F04848;
+}
+
+.text-align-center {
+    margin-top: 50px;
+    text-align: center;
+}
+
+ol {
+    counter-reset: foo;
+    display: table;
+}
+
+ol > li {
+    counter-increment: foo;
+    display: table-row;
+}
+
+ol > li::before {
+    content: counter(foo) ".";
+    display: table-cell; /* aha! */
+    text-align: right;
+}
+
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -9,8 +67,8 @@ body {
     padding: 0;
     font-family: 'Fira Mono', monospace;
     font-size: 16px;
-    background: rgba(33, 46, 59, 1);
-    color: rgba(250,250,255,1);
+    background: #fff;
+    color: rgba(0,0,0,0.85);
 }
 
 pre {
@@ -38,7 +96,6 @@ input {
     margin: 0 0 20px 3px;
     padding: 8px 5px 0px 0;
     background: transparent;
-    color: rgba(250,250,255,1);
     font-size: 20px;
     border-bottom: 1px dotted rgba(91,114,127,1);
 }
@@ -64,8 +121,8 @@ button {
 }
 
 .app__number {
-    font-size: 36px;
-    color: rgba(244, 89, 87, 1);
+    font-size: 44pt;
+    color: #747F8D;
 }
 
 .app__info:before,
@@ -84,7 +141,7 @@ button {
 
 .app__level {
     float: left;
-    color: rgba(244, 192, 37, 1);
+    color: #43B581;
 }
 
 .app__wrong {
@@ -99,4 +156,10 @@ button {
     right: 30px;
     color: rgba(33, 150, 243, 1);
     text-decoration: none;
+}
+
+.hide-element {
+    display: none;
+    width: 0;
+    height: 0;
 }

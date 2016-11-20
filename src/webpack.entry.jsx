@@ -8,6 +8,7 @@ require("file-loader??emitFile=false&name=[name].[ext]!./index.html");
 // CSS
 require("file-loader?name=[path][name].[ext]!./css/game.css");
 require("file-loader?name=[path][name].[ext]!./css/normalize.css");
+require("file-loader?name=[path][name].[ext]!./css/skeleton.css");
 
 // Fonts
 require("file-loader?name=[path][name].[ext]!./fonts/firamono/firamono.css");
@@ -49,11 +50,9 @@ class GenNumber extends React.Component {
             <div className="app__gen-number">
                 <div className="app__info">
                     <p className="app__level">Level: {this.props.level.main} - {this.props.level.sub}</p>
-                    <p className="app__wrong">Wrong: {this.props.wrong}/3</p>
+                    <p className="app__wrong">Salah: {this.props.wrong}/3</p>
                 </div>
-                <p className="app__divider">############################</p>
                 <p className="app__number" id="number">{(this.props.wrong < 3) ? atob(this.props.question) : '????'}</p>
-                <p className="app__divider">############################</p>
             </div>
         )
     }
@@ -79,7 +78,7 @@ class InputNumber extends React.Component {
         if(this.props.wrong < 3) {
             layout = <div className="app__input">
                         <form onSubmit={this.handleUserInput}>
-                            Number is: 
+                            Yang kamu ingat:
                             <input 
                                 pattern="[0-9]+"
                                 type="text"
@@ -89,11 +88,11 @@ class InputNumber extends React.Component {
                             <br/>
                             <br/>
                         </form>
-                        <button onClick={this.handleReset}>Restart</button>
+                        <a className="button" href="#" onClick={this.handleReset}>Mulai Ulang</a>
                     </div>
         } else {
             layout = <div className="app__end">
-                        <div class="app__notify">Better luck next time (✧ω✧)</div><br/><br/><button onClick={this.handleReset}>Restart</button>
+                        <div className="app__notify">Coba lagi yah ka (✧ω✧)</div><br/><br/><a className="button" href="#" onClick={this.handleReset}>Mulai Ulang</a>
                     </div>;
         }
         
@@ -168,9 +167,71 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-)
+// class WelcomeMessage extends React.Component {
+//     mulaiPermainan() {
+//         console.log("TEST");
+//     }
+//     render() {
+//         return (
+//             <div id="test">
+//             <p> Hello </p>
+//             <a onClick={this.mulaiPermainan()} href="#">Mulai Permainan</a>
+//             </div>
+//         )
+//     }
+// }
 
+// ReactDOM.render(
+//     <WelcomeMessage />,
+//     document.getElementById('welcome-message')
+// )
+// NOTE: harus di mount
+//ReactDOM.unmountComponentAtNode(domContainerNode)
+
+// Render <App /> if user click start game
+
+
+var pesanPembuka = document.getElementById("pesan-pembuka");
+var petunjuk = document.getElementById("petunjuk");
+var tombolMulai = document.getElementById("tombol-mulai");
+var tombolKeluar = document.getElementById("tombol-keluar");
+var tombolPetunjuk = document.getElementById("tombol-petunjuk");
+var tombolKembali = document.getElementById("tombol-kembali");
+var pesanPembukaClassList = pesanPembuka.classList;
+var petunjukClassList = petunjuk.classList;
+var tombolMulaiClassList = tombolMulai.classList;
+var tombolKeluarClassList = tombolKeluar.classList;
+var tombolPetunjukClassList = tombolPetunjuk.classList;
+var tombolKembaliClassList = tombolKembali.classList;
+
+tombolMulai.addEventListener("click", function() {
+    console.log("Hello");
+    // render apps
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    );
+    pesanPembukaClassList.add("hide-element");
+    tombolMulaiClassList.add("hide-element");
+    tombolKeluarClassList.remove("hide-element");
+})
+
+tombolKeluar.addEventListener("click", function() {
+    console.log("keluar");
+    // unmount App component
+    ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+    tombolKeluarClassList.add("hide-element");
+    tombolMulaiClassList.remove("hide-element");
+    pesanPembukaClassList.remove("hide-element");
+})
+
+tombolPetunjuk.addEventListener("click", function() {
+    pesanPembukaClassList.add("hide-element");
+    petunjukClassList.remove("hide-element");
+})
+
+tombolKembali.addEventListener("click", function() {
+    petunjukClassList.add("hide-element");
+    pesanPembukaClassList.remove("hide-element");
+})
 

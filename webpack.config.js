@@ -8,7 +8,7 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 
 var config = {
     context: SRC_DIR,
-    entry: SRC_DIR + '/webpack.entry.js',
+    entry: SRC_DIR + '/webpack.entry.jsx',
     output: {
         path: BUILD_DIR,
         filename: 'webpack.output.js'
