@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Number Memory Game</title>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/game.css">
+    <!-- Setup font -->
+    <link href="./fonts/firamono/firamono.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="content">
+      <pre>
+      -----------------------------------------------------
+
+      ██╗        ██╗    ██╗  
+      ██╔╝       ██╔╝    ╚██╗ 
+      ██╔╝       ██╔╝      ╚██╗
+      ╚██╗      ██╔╝       ██╔╝
+      ╚██╗    ██╔╝       ██╔╝ 
+      ╚═╝    ╚═╝        ╚═╝  
+
+      Greetings developers, Shall we play a game?
+
+      Re-type the number you see below. Ez right?
+
+      -----------------------------------------------------
+
+      </pre>
+      <div id="app"></div>
+      <script src="./webpack.output.js"></script>
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+
+</html>
